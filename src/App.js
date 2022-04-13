@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home'
 import Header from './Pages/Header/Header';
 import About from './Pages/About/About';
-import Services from './Pages/Home/Services/Services';
 
 function App() {
   return (
