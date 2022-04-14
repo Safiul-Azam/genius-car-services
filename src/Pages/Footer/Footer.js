@@ -4,7 +4,7 @@ const Footer = () => {
     const today = new Date()
     const year = today.getFullYear()
     return (
-        <div style={{position:'sticky', bottom:'0'}} >
+        <div className='text-center bg-dark text-white fixed-bottom p-4'>
             <p><small>&copy; copy right {year}</small></p>
         </div>
     );
