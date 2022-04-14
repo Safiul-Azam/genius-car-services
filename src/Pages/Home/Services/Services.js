@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import Service from '../Service/Service';
 import './Services.css'
 
@@ -10,7 +11,8 @@ const Services = () => {
         .then(data => setServices(data))
     },[])
     return (
-        <div>
+       <Container>
+            <div>
             <h2>Our Services</h2>
            <div className="services-container">
            {
@@ -21,6 +23,7 @@ const Services = () => {
             }
            </div>
         </div>
+       </Container>
     );
 };
 
