@@ -13,7 +13,9 @@ const Register = () => {
         loading,
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
-      
+      if(user){
+          navigate('/home')
+      }
       const handleSubmit = e =>{
         e.preventDefault()
         const email = e.target.email.value

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Col } from 'react-bootstrap';
 
 const Expert = ({expert}) => {
     const {name, img} = expert
-    return (g
+    return (
         <Col>
         <CardGroup>
             <Card style={{ width: '18rem' }}>
