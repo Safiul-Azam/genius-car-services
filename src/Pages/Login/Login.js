@@ -49,6 +49,7 @@ const Login = () => {
                 <p className=''>New to genius-car-services <span className='text-danger ' onClick={navigateRegister}> Please Register</span></p>
             </Form>
            </div>
+           
             <SocialLogin></SocialLogin>
             
         </div>

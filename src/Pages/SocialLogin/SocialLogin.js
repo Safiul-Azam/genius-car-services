@@ -26,9 +26,9 @@ const SocialLogin = () => {
     return (
         <div className='mx-auto w-50'>
             <div className='mt-3 d-flex align-items-center  '>
-                <div style={{ height: '1px' }} className='bg-primary w-50'></div>
+                <div style={{ height: '1px' }} className='bg-dark w-50'></div>
                 <p className='mt-2 px-3 '>or</p>
-                <div style={{ height: '1px' }} className='bg-primary w-50'></div>
+                <div style={{ height: '1px' }} className='bg-dark w-50'></div>
             </div>
             {errorElement}
             {loadingElement}
