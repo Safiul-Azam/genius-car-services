@@ -12,6 +12,7 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import AddService from './Pages/AddService/AddService';
 import ManageService from './Pages/ManageService/ManageService';
 import { ToastContainer } from 'react-toastify';
+import Orders from './Pages/Orders/Orders';
 
 function App() {
   return (
@@ -38,6 +39,11 @@ function App() {
             <ManageService></ManageService>
           </RequireAuth>
         }></Route>
+        <Route path='/orders' element={
+          <RequireAuth>
+            <Orders></Orders>
+          </RequireAuth>
+        }></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={
           <div>
@@ -47,7 +53,7 @@ function App() {
         }></Route>
       </Routes>
       <Footer></Footer>
-        <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

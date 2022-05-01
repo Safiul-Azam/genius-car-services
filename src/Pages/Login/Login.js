@@ -1,33 +1,40 @@
+// import axios from 'axios';
+import axios from 'axios';
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import Loading from '../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../Loading/Loading'
 
 const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
-      if (loading) {
-        return <Loading></Loading>
-    }
-      if(user){
-          navigate('/home')
+    //   if(user){
+        // return navigate(from , {replace:true});
+    //   }
+      if(loading){
+          return <Loading></Loading>
       }
-    const handleSubmit = e =>{
+      
+    const handleSubmit = async e =>{
         e.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
-        console.log(email, password)
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
+        const {data} = await axios.post('https://afternoon-shelf-76964.herokuapp.com/login',{email})
+        localStorage.setItem('accessToken',data.accessToken)
+        navigate(from , {replace:true});
     }
     const navigateRegister = () =>{
         navigate('/register')
@@ -36,7 +43,7 @@ const Login = () => {
         <div>
            <div className='mx-auto w-50 mt-4 border p-3'>
            <h2>Please Login</h2>
-            <Form onClick={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" />

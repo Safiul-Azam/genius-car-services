@@ -21,7 +21,7 @@ const CheckOut = () => {
             phone:e.target.phone.value,
             service:e.target.service.value
         }
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://afternoon-shelf-76964.herokuapp.com/order', order)
         .then(response=> {
             const {data} = response
             if(data.insertedId){

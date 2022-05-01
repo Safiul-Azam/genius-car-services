@@ -4,7 +4,7 @@ import useService from '../hooks/useService';
 const ManageService = () => {
     const [services, setServices] = useService()
     const handleDelete = id => {
-      const url =`http://localhost:5000/service/${id}`
+      const url =`https://afternoon-shelf-76964.herokuapp.com/service/${id}`
       console.log(url)
       fetch(url, {
           method:'DELETE',
